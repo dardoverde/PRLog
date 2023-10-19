@@ -77,4 +77,10 @@ ve demo or a video demo of PRLog here.]
 
 ## Roadmap
 
-[Outline the future plans and features you have in mind for PRLog.]
+![fitapp1](https://github.com/dardoverde/PRLog/assets/144735131/5ccad748-d0c8-47c1-b593-e6c88d7cae15)
+
+![fitapp2](https://github.com/dardoverde/PRLog/assets/144735131/0bb82cd8-5618-4fe6-a2df-622b312cc8e7)
+
+![fitapp3](https://github.com/dardoverde/PRLog/assets/144735131/4aede755-6ae3-4797-827e-1958818ed2f1)
+
+![fitapp4](https://github.com/dardoverde/PRLog/assets/144735131/265fea32-fad1-4eae-a5e2-25257f425f48)
