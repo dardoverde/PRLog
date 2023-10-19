@@ -1,4 +1,4 @@
-# PRLog
+# PRLog (Under construction)
 
 PRLog is a Gym Management Application that brings together gym owners, clients, and coaches, facilitating seamless interaction and fitness management. Clients can register for various gym programs and access a range of fitness products across different gyms. Coaches have the capability to create customized fitness programs for their athletes, and athletes/clients can enroll in classes and access daily workout plans.
 
@@ -81,6 +81,8 @@ ve demo or a video demo of PRLog here.]
 
 ![fitapp2](https://github.com/dardoverde/PRLog/assets/144735131/0bb82cd8-5618-4fe6-a2df-622b312cc8e7)
 
+(under construction)
 ![fitapp3](https://github.com/dardoverde/PRLog/assets/144735131/4aede755-6ae3-4797-827e-1958818ed2f1)
 
+(under construction)
 ![fitapp4](https://github.com/dardoverde/PRLog/assets/144735131/265fea32-fad1-4eae-a5e2-25257f425f48)
