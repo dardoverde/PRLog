@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous" defer></script>*@
+    @*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous" defer></script>*@
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/js/General.js")
+    @Styles.Render("~/Styles/General.css")
+    @RenderSection("css", required: false)
+    @Scripts.Render("~/bundles/jquery")
+
+
+</head>
+<body>
+
+    @if (ViewBag.Title != "Login" && ViewBag.Title != "Registry") //info y contacto deben tener un menu diferente
+    {
+
+        
+        <div class=" sidebar-sticky">
+            <nav class="main-menu navbar bg-body-tertiary position-fixed">
+
+                <ul class="nav nav-pills flex-column mb-auto">
+
+
+
+                    <li>
+                        <a href="~/Home/Perfil">
+                            <i class="fa fa-user fa-2x"></i>
+                            <span class="nav-text">
+                                @Session["NombreUsuario"]
+                            </span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="~/Home/Index">
+                            <i class="fa fa-home fa-2x"></i>
+                            <span class="nav-text">
+                                @Recursos.Recurso.MenuInicio
+                            </span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="~/Home/AdminGim">
+                            <i class="fa fa-cogs fa-2x"></i>
+                            <span class="nav-text">
+                                @Recursos.Recurso.Administracion
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="~/Home/AdminUsuarios">
+                            @*<i class="fa fa-cogs fa-2x"></i>*@
+                            <i class="fa fa-users"></i>
+                            <span class="nav-text">
+                                Usuarios
+                            </span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-info fa-2x"></i>
+                            <span class="nav-text">
+                                @Recursos.Recurso.MenuPerfil
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="logout">
+                    <li>
+                        <a href="#" onclick="LogOut();">
+                            <i class="fa fa-power-off fa-2x"></i>
+                            <span class="nav-text">
+                                @Recursos.Recurso.MenuLogout
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+
+
+
+    }
+
+    <div class="container body-content" id="main">
+
+        @RenderBody()
+
+
+        <footer>
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Fitness App</p>
+
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        var SITEROOT = '@System.Configuration.ConfigurationManager.AppSettings["SITEROOT"]';
+
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("Scripts", required: false)
+
+    @RenderSection("js", required: false)
+
+
+</body>
+</html>
+
+

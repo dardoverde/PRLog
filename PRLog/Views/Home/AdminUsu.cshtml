@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "AdminUsu";
+}
+
+<script src="~/js/AdminUsu.js"></script>
+
+<div class="container">
+    <div class="text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+        </svg>
+
+        <h2>@ViewBag.Atleta.Nombre @ViewBag.Atleta.Apellido</h2>
+    </div>
+
+    <div class="row">
+
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Datos de usuario
+            </a>
+
+        </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="col-md-8 order-md-1">
+                    <h4 class="mb-3">Datos de usuario</h4>
+                    <form class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName">Nombre</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value="@ViewBag.Atleta.Nombre" required>
+                                <div class="invalid-feedback">
+                                    Valid first name is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName">Apellido</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="@ViewBag.Atleta.Apellido" required>
+                                <div class="invalid-feedback">
+                                    Valid last name is required.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" value="@ViewBag.Atleta.Email">
+                            <div class="invalid-feedback">
+                                Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br />
+        <p>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseMensualidad" role="button" aria-expanded="false" aria-controls="collapseMensualidad">
+                Nueva membresía
+            </a>
+
+        </p>
+        <div class="collapse" id="collapseMensualidad">
+            <div class="card card-body">
+                <div class="col-sm-12 order-sm-1">
+
+                    <form  action="@Url.Content("~/Home/AddMensualidades")" method="post" role="form"  class="needs-validation" novalidate>
+                        <div class="row">
+                            <div class="col-sm-12 mb-sm-3">
+                                <div class="input-group mb-sm-3">
+
+                                    <input id="txtIdAtleta" name="txtIdAtleta" value="@ViewBag.Atleta.id" type="hidden" />
+                                    <label class="input-group-text col-2" for="inputGroupSelect01">Disciplina</label>
+                                    <select class="form-select col-10" id="inputGroupSelect01" name="selDisciplina">
+                                        <option selected>Choose...</option>
+                                        @foreach (var Gimnasio in ViewBag.Gimnasios)
+                                        {
+                                            foreach (var Disciplina in Gimnasio.Disciplinas)
+                                            {
+
+                                                <option value="@Disciplina.id">@Gimnasio.Nombre - @Disciplina.Nombre</option>
+
+                                            }
+                                        }
+
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-sm-3">
+                                <div class="input-group mb-sm-3">
+
+                                    <label class="input-group-text col-2" for="inputGroupSelect01">Membresía</label>
+                                    <select class="form-select col-10" id="selMembresia" onchange="seleccionaMembresia()" name="selMembresia">
+                                        <option selected>Choose...</option>
+                                        @foreach (var Membresia in ViewBag.Membresias)
+                                        {
+                                            <option id="@Membresia.id" value="@Membresia.Meses" onclick="seleccionaMembresia(@Membresia.Meses)">@Membresia.Nombre</option>
+                                        }
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 mb-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Fecha desde</span>
+                                    <input type="date" aria-label="First name" class="form-control" id="dteFechaInicio" name="dteFechaDesde">
+                                    <span class="input-group-text">Fecha caducidad</span>
+                                    <input type="date" aria-label="Last name" class="form-control" id="dteFechaFin" onchange="cuentaDias();" name="dteFechaHasta">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-text col-sm-2">Días</span>
+                                    <input type="number" aria-label="First name" class="form-control" id="txtDias" name="txtDias">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-sm-3">
+                                <div class="input-group">
+                                    <span class="input-group-text col-sm-2">Valor: $</span>
+                                    <input type="number" aria-label="First name" class="form-control" value="0" name="txtValor" id="txtValor" >
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div onmouseover="validaMensualidad();">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit" name="GuardarMembresia" id="GuardarMembresia">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br />
+        <ol class="list-group list-group-numbered">
+            @foreach (var Mensualidad in ViewBag.Atleta.Mensualidades)
+            {
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">@Mensualidad.Disciplinas.Nombre</div>
+                    @Mensualidad.FechaDesde.ToString().Split(' ')[0] - @Mensualidad.FechaHasta.ToString().Split(' ')[0]
+                </div>
+                <span class="badge bg-primary rounded-pill">@Mensualidad.Estado</span>
+                <span class="badge bg-primary rounded-pill">@Mensualidad.Dias</span>
+            </li>
+            }
+        </ol>
+
+    </div>
+
+    <form action="@Url.Content("~/Home/BtnEnviar_Click")" method="post" role="form" class="needs-validation" novalidate>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" name="GuardarMembresia" id="GuardarMembresia">Enviar correo</button>
+    </form>
+</div>
+
+<script type="text/javascript">
+
+
+
+</script>

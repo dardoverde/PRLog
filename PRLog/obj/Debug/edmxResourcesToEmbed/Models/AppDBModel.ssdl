@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AppDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Administradores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idGimnasio" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Observaciones" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Autenticaciones">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Contrasenia" Type="varchar(max)" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Disciplinas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Observaciones" Type="varchar(max)" />
+    <Property Name="idGimnasio" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Fichas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmergenciaNombre1" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaApellido1" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaCelular1" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaEmail1" Type="varchar" MaxLength="150" />
+    <Property Name="EmergenciaNombre2" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaApellido2" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaCelular2" Type="varchar" MaxLength="50" />
+    <Property Name="EmergenciaEmail2" Type="varchar" MaxLength="150" />
+    <Property Name="TipoSangre" Type="varchar" MaxLength="50" />
+    <Property Name="Alergias" Type="varchar(max)" />
+    <Property Name="Lesiones" Type="varchar(max)" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Gimnasios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Pais" Type="varchar" MaxLength="50" />
+    <Property Name="Direccion" Type="varchar" MaxLength="250" />
+    <Property Name="PersonaContacto" Type="varchar" MaxLength="150" />
+    <Property Name="CelularContacto" Type="varchar" MaxLength="50" />
+    <Property Name="EmailContacto" Type="varchar" MaxLength="50" />
+    <Property Name="ColorPrimario" Type="varchar" MaxLength="50" />
+    <Property Name="ColorSecundario" Type="varchar" MaxLength="50" />
+    <Property Name="Logo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Horarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="HoraInicio" Type="varchar" MaxLength="50" />
+    <Property Name="HoraFin" Type="varchar" MaxLength="50" />
+    <Property Name="Capacidad" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Dia" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idDisciplina" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Membresias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Detalle" Type="varchar(max)" />
+    <Property Name="Meses" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Mensualidades">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaDesde" Type="datetime" />
+    <Property Name="FechaHasta" Type="datetime" />
+    <Property Name="Dias" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idMembresia" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idDisciplina" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="Valor" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="PerfilesEntrenadores">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idDisciplina" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Observacion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Registros">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUsuario" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idHorario" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="FechaNacimiento" Type="datetime" />
+    <Property Name="Celular" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Administradores_Gimnasios">
+    <End Role="Gimnasios" Type="Self.Gimnasios" Multiplicity="0..1" />
+    <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gimnasios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Administradores">
+        <PropertyRef Name="idGimnasio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administradores_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Administradores">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Autenticaciones_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Autenticaciones" Type="Self.Autenticaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Autenticaciones">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Disciplinas_Gimnasios">
+    <End Role="Gimnasios" Type="Self.Gimnasios" Multiplicity="0..1" />
+    <End Role="Disciplinas" Type="Self.Disciplinas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gimnasios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Disciplinas">
+        <PropertyRef Name="idGimnasio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fichas_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Fichas" Type="Self.Fichas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Fichas">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Horarios_Disciplinas">
+    <End Role="Disciplinas" Type="Self.Disciplinas" Multiplicity="0..1" />
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplinas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Horarios">
+        <PropertyRef Name="idDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensualidades_Disciplinas">
+    <End Role="Disciplinas" Type="Self.Disciplinas" Multiplicity="0..1" />
+    <End Role="Mensualidades" Type="Self.Mensualidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplinas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Mensualidades">
+        <PropertyRef Name="idDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensualidades_Membresias">
+    <End Role="Membresias" Type="Self.Membresias" Multiplicity="0..1" />
+    <End Role="Mensualidades" Type="Self.Mensualidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membresias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Mensualidades">
+        <PropertyRef Name="idMembresia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mensualidades_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Mensualidades" Type="Self.Mensualidades" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Mensualidades">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesEntrenadores_Disciplinas">
+    <End Role="Disciplinas" Type="Self.Disciplinas" Multiplicity="0..1" />
+    <End Role="PerfilesEntrenadores" Type="Self.PerfilesEntrenadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplinas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesEntrenadores">
+        <PropertyRef Name="idDisciplina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PerfilesEntrenadores_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="PerfilesEntrenadores" Type="Self.PerfilesEntrenadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="PerfilesEntrenadores">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registros_Horarios">
+    <End Role="Horarios" Type="Self.Horarios" Multiplicity="0..1" />
+    <End Role="Registros" Type="Self.Registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Horarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="idHorario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registros_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Registros" Type="Self.Registros" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Registros">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AppDBModelStoreContainer">
+    <EntitySet Name="Administradores" EntityType="Self.Administradores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Autenticaciones" EntityType="Self.Autenticaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disciplinas" EntityType="Self.Disciplinas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fichas" EntityType="Self.Fichas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gimnasios" EntityType="Self.Gimnasios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Horarios" EntityType="Self.Horarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Membresias" EntityType="Self.Membresias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mensualidades" EntityType="Self.Mensualidades" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PerfilesEntrenadores" EntityType="Self.PerfilesEntrenadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registros" EntityType="Self.Registros" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Administradores_Gimnasios" Association="Self.FK_Administradores_Gimnasios">
+      <End Role="Gimnasios" EntitySet="Gimnasios" />
+      <End Role="Administradores" EntitySet="Administradores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administradores_Usuarios" Association="Self.FK_Administradores_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Administradores" EntitySet="Administradores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Autenticaciones_Usuarios" Association="Self.FK_Autenticaciones_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Autenticaciones" EntitySet="Autenticaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Disciplinas_Gimnasios" Association="Self.FK_Disciplinas_Gimnasios">
+      <End Role="Gimnasios" EntitySet="Gimnasios" />
+      <End Role="Disciplinas" EntitySet="Disciplinas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fichas_Usuarios" Association="Self.FK_Fichas_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Fichas" EntitySet="Fichas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Horarios_Disciplinas" Association="Self.FK_Horarios_Disciplinas">
+      <End Role="Disciplinas" EntitySet="Disciplinas" />
+      <End Role="Horarios" EntitySet="Horarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensualidades_Disciplinas" Association="Self.FK_Mensualidades_Disciplinas">
+      <End Role="Disciplinas" EntitySet="Disciplinas" />
+      <End Role="Mensualidades" EntitySet="Mensualidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensualidades_Membresias" Association="Self.FK_Mensualidades_Membresias">
+      <End Role="Membresias" EntitySet="Membresias" />
+      <End Role="Mensualidades" EntitySet="Mensualidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mensualidades_Usuarios" Association="Self.FK_Mensualidades_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Mensualidades" EntitySet="Mensualidades" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesEntrenadores_Disciplinas" Association="Self.FK_PerfilesEntrenadores_Disciplinas">
+      <End Role="Disciplinas" EntitySet="Disciplinas" />
+      <End Role="PerfilesEntrenadores" EntitySet="PerfilesEntrenadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PerfilesEntrenadores_Usuarios" Association="Self.FK_PerfilesEntrenadores_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="PerfilesEntrenadores" EntitySet="PerfilesEntrenadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registros_Horarios" Association="Self.FK_Registros_Horarios">
+      <End Role="Horarios" EntitySet="Horarios" />
+      <End Role="Registros" EntitySet="Registros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registros_Usuarios" Association="Self.FK_Registros_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Registros" EntitySet="Registros" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

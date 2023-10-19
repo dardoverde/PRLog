@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "AdministracionGimnasio";
+}
+
+<h2>Management</h2>
+<div class="row">
+    <div class="btn-group" role="group">
+
+        @foreach (var Gimnasio in ViewBag.Gimnasios)
+        {
+            <a href="/Home/AdminGim/@Gimnasio.id" class="btn btn-secondary">@Gimnasio.Nombre</a>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="card col-sm-12">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Gimnasios</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var Gimnasio in ViewBag.Gimnasios)
+            {
+                if (ViewBag.idGimnasio == Gimnasio.id)
+                {
+                    <li class="list-group-item active">@Gimnasio.Nombre</li>
+
+                }
+                else
+                {
+                    <li class="list-group-item">@Gimnasio.Nombre</li>
+
+                }
+            }
+
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-sm-12">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Perfil Disciplinas</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var Disciplina in ViewBag.Disciplinas)
+            {
+                <li class="list-group-item form-inline">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInput">Name</label>
+                            <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe" value="@Disciplina.Nombre">
+                        </div>
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">-></div>
+                                </div>
+
+                                <select class="form-control form-control-sm">
+                                    <option>Antonio Larco</option>
+                                    <option>John Doe</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                                <label class="form-check-label" for="autoSizingCheck">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        </div>
+                    </div>
+
+                </li>
+
+            }
+
+            <li class="list-group-item">
+                <div class=" row form-row align-items-center">
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInput">Name</label>
+                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Nuevo" value="">
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">-></div>
+                            </div>
+
+                            <select class="custom-select form-control form-control-sm" multiple>
+                                <option selected>Open this select menu</option>
+                                <option value="1">Antonio Larco</option>
+                                <option value="2">John Doe</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                            <label class="form-check-label" for="autoSizingCheck">
+                                Remember me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </div>
+
+            </li>
+
+        </ul>
+
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>

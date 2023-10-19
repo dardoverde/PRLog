@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42ead2b9a37c4f828230a7b9de1fac47" Name="Diagram1">
+        <EntityTypeShape EntityType="AppDBModel.Autenticaciones" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Disciplinas" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Fichas" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Gimnasios" Width="1.5" PointX="1.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Horarios" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Membresias" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.PerfilesEntrenadores" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Registros" Width="1.5" PointX="6" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AppDBModel.Usuarios" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <AssociationConnector Association="AppDBModel.FK_Autenticaciones_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_Disciplinas_Gimnasios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_Horarios_Disciplinas" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_PerfilesEntrenadores_Disciplinas" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_Fichas_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_Registros_Horarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_PerfilesEntrenadores_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="AppDBModel.FK_Registros_Usuarios" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AppDBModel.Administradores" Width="1.5" PointX="6.75" PointY="1.625" />
+        <AssociationConnector Association="AppDBModel.FK_Administradores_Gimnasios" />
+        <AssociationConnector Association="AppDBModel.FK_Administradores_Usuarios" />
+        <EntityTypeShape EntityType="AppDBModel.Mensualidades" Width="1.5" PointX="6" PointY="8.5" />
+        <AssociationConnector Association="AppDBModel.FK_Mensualidades_Disciplinas" />
+        <AssociationConnector Association="AppDBModel.FK_Mensualidades_Membresias" />
+        <AssociationConnector Association="AppDBModel.FK_Mensualidades_Usuarios" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

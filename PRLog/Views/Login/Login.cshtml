@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>PR Log</h2>
+<h6>Best gym admin</h6>
+
+
+<div class="row">
+    
+    
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-login">
+                <div class="panel-heading">
+                    
+                    <div class="btn-group col-sm-12" role="group" aria-label="Basic example">
+                        <button type="button" onclick="" class="btn btn-secondary active col-sm-6" id="login-form-link">Login</button>
+
+                        <a href="~/Login/Registry"  class="btn btn-secondary col-sm-6">Registry</a>
+                    </div>
+
+                    
+                    <hr>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form id="login-form" action="@Url.Content("~/Login/Login")" method="post" role="form" class="card-body">
+                                <div class="form-group">
+                                    <input type="text" name="txtNombre" id="username" tabindex="1" class="form-control" placeholder=" @Recursos.Recurso.LoginEmail" value="">
+                                    <small id="emailHelp" class="form-text text-muted">@Recursos.Recurso.LoginNoCompartiremos</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="txtContrasena" id="password" tabindex="2" class="form-control" placeholder="@Recursos.Recurso.LoginContrasena">
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="checkbox" tabindex="3" class="" name="chkRecuerdame" id="remember">
+                                    <label for="remember"> @Recursos.Recurso.Recuerdame</label>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-12 col-sm-offset-3">
+                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="btn  btn-primary form-control btn btn-login" value="@Recursos.Recurso.Entrar">
+                                            @if (ViewBag.Error != "")
+                                            {
+                                                <div class=" row">
+                                                    <div class=" col-sm-12">
+                                                        <label class="" for="">@ViewBag.Error</label>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="text-center">
+                                                <a href="https://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@*@Html.Partial("_ModalUsuario")*@
+
